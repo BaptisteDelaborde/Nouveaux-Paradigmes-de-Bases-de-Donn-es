@@ -113,7 +113,7 @@ $newPraticien = new Praticien();
 $newPraticien->setId("b932e3c9-9b5f-48bf-a917-6a37fbd19d8c"); 
 $newPraticien->setNom("Dupont");
 $newPraticien->setPrenom("Marie");
-$newPraticien->setVille("Paris");
+$newPraticien->setVille("Marseille");
 $newPraticien->setEmail("marie.dupont@example.com");
 $newPraticien->setTelephone("0102030405");
 
