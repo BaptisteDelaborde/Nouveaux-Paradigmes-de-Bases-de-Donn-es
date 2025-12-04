@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="toubeelib\praticien\domain\Praticien" table="praticien">
+
+        <id name="id" type="string" column="id">
+            <generator strategy="NONE"/>
+        </id>
+
+        <field name="nom" type="string" column="nom" />
+        <field name="prenom" type="string" column="prenom" />
+        <field name="ville" type="string" column="ville" />
+        <field name="email" type="string" column="email" />
+        <field name="telephone" type="string" column="telephone" />
+        <field name="specialite_id" type="integer" column="specialite_id" />
+        <field name="structure_id" type="string" column="structure_id" nullable="true" />
+
+    </entity>
+
+</doctrine-mapping>
