@@ -90,3 +90,42 @@ $motifs = $repoMotif->findBy([
 foreach ($motifs as $motif) {
     echo "- " . $motif->getLibelle() . "<br>";
 }
+
+echo "<br> 6) <br>";
+
+$praticien6 = $repoPraticien->find("8ae1400f-d46d-3b50-b356-269f776be532");
+echo "<b>Motifs de visite du praticien " . $praticien6->getNom() . " " . $praticien6->getPrenom() . " :</b><br>";
+
+$specialiteId = $praticien6->getSpecialiteId();
+$motifsPraticien = $repoMotif->findBy([
+    "specialiteId" => $specialiteId
+]);
+
+foreach ($motifsPraticien as $motif) {
+    echo "- " . $motif->getLibelle() . "<br>";
+}
+
+echo "<br> 7) <br>";
+
+$specialitePediatrie = $repoSpecialite->find(3);
+
+$newPraticien = new Praticien();
+$newPraticien->setId("b932e3c9-9b5f-48bf-a917-6a37fbd19d8c"); 
+$newPraticien->setNom("Dupont");
+$newPraticien->setPrenom("Marie");
+$newPraticien->setVille("Paris");
+$newPraticien->setEmail("marie.dupont@example.com");
+$newPraticien->setTelephone("0102030405");
+
+
+$newPraticien->setSpecialiteId($specialitePediatrie->getId());
+
+$entityManager->persist($newPraticien);
+$entityManager->flush();
+
+echo "Praticien enregistré avec ID : " . $newPraticien->getId() ."<br>";
+echo "Nom : " . $newPraticien->getNom() . "<br>";
+echo "Prenom : " . $newPraticien->getPrenom() . "<br>";
+echo "Ville : " . $newPraticien->getVille() . "<br>";
+echo "email : " . $newPraticien->getEmail() . "<br>";
+echo "telephone : " . $newPraticien->getTelephone() . "<br>";

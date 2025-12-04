@@ -13,16 +13,8 @@ class Praticien
     private int $specialite_id;
     private string $structure_id;
 
-    public function __construct(string $id, string $nom, string $prenom, string $ville, string $email, string $telephone, int $specialite_id, string $structure_id)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->ville = $ville;
-        $this->email = $email;
-        $this->telephone = $telephone;
-        $this->specialite_id = $specialite_id;
-        $this->structure_id = $structure_id;
     }
 	
 
@@ -64,31 +56,21 @@ class Praticien
         return $this->structure_id;
     }
 
+    public function setId(string $id): void {$this->id = $id;}
 
-    public function setNom(string $nom): void
-    {
-        $this->nom = $nom;
-    }
+	public function setNom(string $nom): void {$this->nom = $nom;}
 
-    public function setPrenom(string $prenom): void
-    {
-        $this->prenom = $prenom;
-    }
+	public function setPrenom(string $prenom): void {$this->prenom = $prenom;}
 
-    public function setVille(string $ville): void
-    {
-        $this->ville = $ville;
-    }
+	public function setVille(string $ville): void {$this->ville = $ville;}
 
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
-    }
+	public function setEmail(string $email): void {$this->email = $email;}
 
-    public function setTelephone(string $telephone): void
-    {
-        $this->telephone = $telephone;
-    }
+	public function setTelephone(string $telephone): void {$this->telephone = $telephone;}
 
+	public function setSpecialiteId(int $specialite_id): void {$this->specialite_id = $specialite_id;}
 
+	public function setStructureId(string $structure_id): void {$this->structure_id = $structure_id;}
+
+	
 }
