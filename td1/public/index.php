@@ -43,12 +43,35 @@ $specialiteDuPraticien = $repoSpecialite->find($praticien->getSpecialiteId());
 
 echo "Spécialité : " . $specialiteDuPraticien->getLibelle() . "<br>";
 
-$structure = $repoStructure->find($praticien->getStructureId());
+$structureq3 = $repoStructure->find($praticien->getStructureId());
 
-echo "Structure : " . $structure->getNom() . "<br>";
-echo "Adresse : " . $structure->getAdresse() . "<br>";
-echo "Ville : " . $structure->getVille() . "<br>";
-echo "Code postal : " . $structure->getCodePostal() . "<br>";
-echo "Téléphone : " . $structure->getTelephone() . "<br>";
+echo "Structure : " . $structureq3->getNom() . "<br>";
+echo "Adresse : " . $structureq3->getAdresse() . "<br>";
+echo "Ville : " . $structureq3->getVille() . "<br>";
+echo "Code postal : " . $structureq3->getCodePostal() . "<br>";
+echo "Téléphone : " . $structureq3->getTelephone() . "<br>";
+
 
 echo "<br> 4) <br>";
+
+$structureq4 = $repoStructure->find("3444bdd2-8783-3aed-9a5e-4d298d2a2d7c");
+
+echo "<b>Structure :</b><br>";
+echo "Nom : " . $structureq4->getNom() . "<br>";
+echo "Adresse : " . $structureq4->getAdresse() . "<br>";
+echo "Ville : " . $structureq4->getVille() . "<br>";
+echo "Téléphone : " . $structureq4->getTelephone() . "<br><br>";
+
+$praticiens = $repoPraticien->findBy([
+    "structure_id" => "3444bdd2-8783-3aed-9a5e-4d298d2a2d7c"
+]);
+
+echo "<b>Praticiens de cette structure :</b><br>";
+
+if ($praticiens) {
+    foreach ($praticiens as $p) {
+        echo "- " . $p->getNom() . " " . $p->getPrenom() . "<br>";
+    }
+} else {
+    echo "Aucun praticien";
+}
