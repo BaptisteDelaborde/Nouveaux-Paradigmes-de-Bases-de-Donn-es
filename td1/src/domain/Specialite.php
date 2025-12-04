@@ -1,12 +1,20 @@
 <?php
-
 namespace toubeelib\praticien\domain;
+use toubeelib\praticien\domain\MotifVisite;
 
 class Specialite {
 
     private int $id;
     private string $libelle;
+    private $motifs = [];
     private ?string $description;
+
+    public function __construct(int $id, string $libelle){
+        $this->id = $id;
+        $this->libelle = $libelle;
+    }
+
+	
 
     public function getId(): int { 
         return $this->id; 
@@ -18,6 +26,10 @@ class Specialite {
 
     public function getDescription(): ?string { 
         return $this->description; 
+    }
+
+    public function getMotifs(){
+        return $this->motifs;
     }
 
     public function setLibelle(string $libelle): void { 

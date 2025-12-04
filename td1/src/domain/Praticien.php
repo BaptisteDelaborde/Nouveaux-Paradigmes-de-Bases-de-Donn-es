@@ -13,6 +13,19 @@ class Praticien
     private int $specialite_id;
     private string $structure_id;
 
+    public function __construct(string $id, string $nom, string $prenom, string $ville, string $email, string $telephone, int $specialite_id, string $structure_id)
+    {
+        $this->id = $id;
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->ville = $ville;
+        $this->email = $email;
+        $this->telephone = $telephone;
+        $this->specialite_id = $specialite_id;
+        $this->structure_id = $structure_id;
+    }
+	
+
     public function getId(): string
     {
         return $this->id;

@@ -3,6 +3,7 @@
 use toubeelib\praticien\domain\Specialite;
 use toubeelib\praticien\domain\Praticien;
 use toubeelib\praticien\domain\Structure;
+use toubeelib\praticien\domain\MotifVisite;
 
 
 require __DIR__ . '/../src/infra/EntityManager.php';
@@ -10,6 +11,7 @@ require __DIR__ . '/../src/infra/EntityManager.php';
 $repoSpecialite = $entityManager->getRepository(Specialite::class);
 $repoPraticien = $entityManager->getRepository(Praticien::class);
 $repoStructure = $entityManager->getRepository(Structure::class);
+$repoMotif = $entityManager->getRepository(MotifVisite::class);
 
 
 echo "Exercice 1 <br>";
@@ -74,4 +76,17 @@ if ($praticiens) {
     }
 } else {
     echo "Aucun praticien";
+}
+
+echo "<br> 5) <br>";
+$specialite5 = $repoSpecialite->find(1);
+
+echo "<b>Spécialité d'ID 1 : </b>" . $specialite5->getLibelle() . "<br>";
+
+$motifs = $repoMotif->findBy([
+    "specialiteId" => 1
+]);
+
+foreach ($motifs as $motif) {
+    echo "- " . $motif->getLibelle() . "<br>";
 }
