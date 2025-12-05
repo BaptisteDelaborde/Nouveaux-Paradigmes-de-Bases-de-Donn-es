@@ -8,11 +8,7 @@ class MotifVisite {
     private int $specialiteId;
     private string $libelle;
 
-    public function __construct(int $id, int $specialiteId, string $libelle){
-        
-        $this->id = $id;
-        $this->specialiteId = $specialiteId;
-        $this->libelle = $libelle;
+    public function __construct(){
     }
 
     public function getId(): int {return $this->id;}

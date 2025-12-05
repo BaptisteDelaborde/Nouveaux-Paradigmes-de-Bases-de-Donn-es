@@ -15,7 +15,7 @@
         <field name="ville" type="string" column="ville" />
         <field name="email" type="string" column="email" />
         <field name="telephone" type="string" column="telephone" />
-        <field name="specialite_id" type="integer" column="specialite_id" />
+        <field name="specialite_id" type="string" column="specialite_id" />
         <field name="structure_id" type="string" column="structure_id" nullable="true" />
 
     </entity>
