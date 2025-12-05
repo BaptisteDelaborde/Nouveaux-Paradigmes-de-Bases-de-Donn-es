@@ -120,7 +120,7 @@ foreach ($motifsPraticien as $motif) {
 //---------------------------------------------------question 7----------------------------------------------------------------
 echo "<br> 7) <br>";
 
-$specialitePediatrie = $repoSpecialite->find(3);
+$specialitePediatrieq7 = $repoSpecialite->find(3);
 $UuidPraticien = Uuid::uuid4()->toString();
 
 $newPraticien = new Praticien();
@@ -132,7 +132,7 @@ $newPraticien->setEmail("marie.dupont@example.com");
 $newPraticien->setTelephone("0102030405");
 
 
-$newPraticien->setSpecialiteId($specialitePediatrie->getId());
+$newPraticien->setSpecialiteId($specialitePediatrieq7->getId());
 
 $entityManager->persist($newPraticien);
 $entityManager->flush();
@@ -149,7 +149,7 @@ echo "telephone : " . $newPraticien->getTelephone() . "<br>";
 echo "<br> 8) <br>";
 $newPraticien->setVille("Paris");
 
-$newPraticien->setStructureId("3444bdd2-8783-3aed-9a5e-4d298d2a2d7c");
+$newPraticien->setStructureId($UuidPraticien);
 
 $specialiteIdq8 = $newPraticien->getSpecialiteId();
 
@@ -191,3 +191,49 @@ $entityManager->remove($newPraticien);
 $entityManager->flush();
 
 echo "Le praticien est supprimer <br>";
+
+
+//---------------------------------------------------Exercice 2------------------------------------------------------------------
+
+echo "<br><b> Exercice 2 </b><br> ";
+
+//---------------------------------------------------question 1----------------------------------------------------------------
+echo " <br> 1) <br>";
+
+$praticienEmail = $repoPraticien->findOneBy([
+    "email" => "Gabrielle.Klein@live.com"
+]);
+
+echo "le nom du praticien est :" . $praticienEmail->getNom() . "<br>";
+echo "l'email du praticien est :" . $praticienEmail->getEmail() . "<br>";
+
+
+//---------------------------------------------------question 2----------------------------------------------------------------
+echo " <br> 2) <br>";
+$praticienNom = $repoPraticien->findOneBy([
+    "nom" => "Goncalves",
+    "ville" => "Paris"
+]);
+
+echo "le nom du praticien est :" . $praticienNom->getNom() . "<br>";
+echo "l'email du praticien est :" . $praticienNom->getEmail() . "<br>";
+
+//---------------------------------------------------question 3----------------------------------------------------------------
+echo " <br> 3) <br>";
+
+$specialitePediatrieq3 = $repoSpecialite->findOneBy([
+    "libelle" => "pédiatrie"
+]);
+echo "Spécialité : " . $specialitePediatrieq3->getLibelle() . "<br>";
+
+$praticiensAssocies = $repoPraticien->findBy([
+    "specialite_id" => $specialitePediatrieq3->getId()
+]);
+
+echo "<br><b>Praticiens associés :</b><br>";
+foreach ($praticiensAssocies as $p) {
+    echo "- " . $p->getNom() . " " . $p->getPrenom() . "<br>";
+}
+
+//---------------------------------------------------question 4----------------------------------------------------------------
+echo " <br> 4) <br>";

@@ -70,7 +70,6 @@ class Praticien
 
 	public function setSpecialiteId(int $specialite_id): void {$this->specialite_id = $specialite_id;}
 
-	public function setStructureId(string $structure_id): void {$this->structure_id = $structure_id;}
+	public function setStructureId(string $structure_id): void {$this->structure_id = $structure_id;}	
 
-	
 }
