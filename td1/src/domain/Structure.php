@@ -10,10 +10,7 @@ class Structure
     private ?string $code_postal;
     private ?string $telephone;
 
-    public function __construct(string $id, string $nom, string $adresse){
-        $this->id = $id;
-        $this->nom = $nom;
-        $this->adresse = $adresse;
+    public function __construct(){
     }
 	
 

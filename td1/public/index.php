@@ -5,6 +5,7 @@ use toubeelib\praticien\domain\Praticien;
 use toubeelib\praticien\domain\Structure;
 use toubeelib\praticien\domain\MotifVisite;
 use Ramsey\Uuid\Uuid;
+use Doctrine\Common\Collections\Criteria;
 
 
 require __DIR__ . '/../src/infra/EntityManager.php';
@@ -237,3 +238,17 @@ foreach ($praticiensAssocies as $p) {
 
 //---------------------------------------------------question 4----------------------------------------------------------------
 echo " <br> 4) <br>";
+$expr = Criteria::expr();
+
+$criteria = Criteria::create()
+    ->where(
+        $expr->contains("description", "santé")
+    )
+    ->orderBy(["libelle" => "ASC"]); 
+
+$typeGroupements = $repoTypeGroupement->matching($criteria);
+
+echo "<b>Types de groupements contenant 'santé' :</b><br>";
+foreach ($typeGroupements as $tg) {
+    echo "- " . $tg->getLibelle() . " : " . $tg->getDescription() . "<br>";
+}
