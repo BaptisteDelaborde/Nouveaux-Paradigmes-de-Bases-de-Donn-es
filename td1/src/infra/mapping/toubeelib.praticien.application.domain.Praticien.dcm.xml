@@ -4,17 +4,19 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="toubeelib\praticien\domain\Structure" table="structure">
+    <entity name="toubeelib\praticien\application\domain\Praticien" table="praticien" repository-class="toubeelib\praticien\infra\repository\PraticienRepository">
 
         <id name="id" type="string" column="id">
             <generator strategy="NONE"/>
         </id>
 
         <field name="nom" type="string" column="nom" />
-        <field name="adresse" type="text" column="adresse" />
-        <field name="ville" type="string" column="ville" nullable="true" />
-        <field name="code_postal" type="string" column="code_postal" nullable="true" />
-        <field name="telephone" type="string" column="telephone" nullable="true" />
+        <field name="prenom" type="string" column="prenom" />
+        <field name="ville" type="string" column="ville" />
+        <field name="email" type="string" column="email" />
+        <field name="telephone" type="string" column="telephone" />
+        <field name="specialite_id" type="string" column="specialite_id" />
+        <field name="structure_id" type="string" column="structure_id" nullable="true" />
 
     </entity>
 

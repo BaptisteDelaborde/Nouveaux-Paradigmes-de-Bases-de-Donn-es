@@ -1,8 +1,8 @@
 <?php
 
-namespace toubeelib\praticien\interface;
+namespace toubeelib\praticien\application\interface;
 
-use toubeelib\praticien\domain\Specialite;
+use toubeelib\praticien\application\domain\Specialite;
 
 interface SpecialiteRepositoryInterface
 {

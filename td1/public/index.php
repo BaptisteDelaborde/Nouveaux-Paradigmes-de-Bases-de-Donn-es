@@ -1,9 +1,9 @@
 <?php
 
-use toubeelib\praticien\domain\Specialite;
-use toubeelib\praticien\domain\Praticien;
-use toubeelib\praticien\domain\Structure;
-use toubeelib\praticien\domain\MotifVisite;
+use toubeelib\praticien\application\domain\Specialite;
+use toubeelib\praticien\application\domain\Praticien;
+use toubeelib\praticien\application\domain\Structure;
+use toubeelib\praticien\application\domain\MotifVisite;
 use Ramsey\Uuid\Uuid;
 use Doctrine\Common\Collections\Criteria;
 

@@ -3,7 +3,7 @@
 namespace toubeelib\praticien\infra\repository;
 
 use Doctrine\ORM\EntityRepository;
-use toubeelib\praticien\interface\PraticienRepositoryInterface;
+use toubeelib\praticien\application\interface\PraticienRepositoryInterface;
 
 class PraticienRepository extends EntityRepository implements PraticienRepositoryInterface
 {
@@ -11,7 +11,7 @@ class PraticienRepository extends EntityRepository implements PraticienRepositor
     {
         return $this->createQueryBuilder('p')
             ->join(
-                'toubeelib\praticien\domain\Specialite',
+                'toubeelib\praticien\application\domain\Specialite',
                 's',
                 'WITH',
                 'p.specialite_id = s.id'
@@ -27,14 +27,14 @@ class PraticienRepository extends EntityRepository implements PraticienRepositor
         return $this->getEntityManager()
             ->createQuery(
                 'SELECT DISTINCT p
-                FROM toubeelib\praticien\domain\Praticien p
-                JOIN toubeelib\praticien\domain\Specialite s
+                FROM toubeelib\praticien\application\domain\Praticien p
+                JOIN toubeelib\praticien\application\domain\Specialite s
                 WITH p.specialite_id = s.id
-                JOIN toubeelib\praticien\domain\Structure st
+                JOIN toubeelib\praticien\application\domain\Structure st
                 WITH p.structure_id = st.id
-                JOIN toubeelib\praticien\domain\StructureMoyenPaiement smp
+                JOIN toubeelib\praticien\application\domain\StructureMoyenPaiement smp
                 WITH smp.structure_id = st.id
-                JOIN toubeelib\praticien\domain\MoyenPaiement mp
+                JOIN toubeelib\praticien\application\domain\MoyenPaiement mp
                 WITH smp.moyen_paiement_id = mp.id
                 WHERE s.libelle = :specialite
                 AND mp.libelle = :moyen'

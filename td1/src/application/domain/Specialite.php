@@ -1,5 +1,5 @@
 <?php
-namespace toubeelib\praticien\domain;
+namespace toubeelib\praticien\application\domain;
 use toubeelib\praticien\domain\MotifVisite;
 use Doctrine\ORM\Mapping as ORM;
 use toubeelib\praticien\infra\repository\SpecialiteRepository;

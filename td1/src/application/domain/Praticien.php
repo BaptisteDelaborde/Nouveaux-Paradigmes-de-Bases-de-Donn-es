@@ -1,6 +1,6 @@
 <?php
 
-namespace toubeelib\praticien\domain;
+namespace toubeelib\praticien\application\domain;
 
 class Praticien
 {

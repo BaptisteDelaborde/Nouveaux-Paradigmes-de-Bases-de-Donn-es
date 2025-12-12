@@ -3,7 +3,7 @@
 namespace toubeelib\praticien\infra\repository;
 
 use Doctrine\ORM\EntityRepository;
-use toubeelib\praticien\interface\SpecialiteRepositoryInterface;
+use toubeelib\praticien\application\interface\SpecialiteRepositoryInterface;
 
 class SpecialiteRepository extends EntityRepository implements SpecialiteRepositoryInterface
 {
@@ -12,7 +12,7 @@ class SpecialiteRepository extends EntityRepository implements SpecialiteReposit
         return $this->getEntityManager()
             ->createQuery(
                 'SELECT s
-                 FROM toubeelib\praticien\domain\Specialite s
+                 FROM toubeelib\praticien\application\domain\Specialite s
                  WHERE s.libelle LIKE :mot
                     OR s.description LIKE :mot'
             )

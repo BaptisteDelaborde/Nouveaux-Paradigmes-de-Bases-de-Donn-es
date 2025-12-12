@@ -4,15 +4,13 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="toubeelib\praticien\domain\Specialite" table="specialite" repository-class="toubeelib\praticien\infra\repository\SpecialiteRepository">
-
-        <id name="id" type="integer" column="id">
+    <entity name="toubeelib\praticien\application\domain\MotifVisite" table="motif_visite">
+        <id name="id" type="string" column="id">
             <generator strategy="NONE"/>
         </id>
 
-        <field name="libelle" type="string" column="libelle" length="48" />
-        <field name="description" type="text" column="description" nullable="true" />
+         <field name="libelle" type="string" column="libelle" length="48" />
+         <field name="specialiteId" column="specialite_id" type="string"/>
 
     </entity>
-
 </doctrine-mapping>

@@ -1,8 +1,8 @@
 <?php
-namespace toubeelib\praticien\domain;
+namespace toubeelib\praticien\application\domain;
 
-class Structure
-{
+class Structure{
+    
     private string $id;
     private string $nom;
     private string $adresse;
