@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="toubeelib\praticien\domain\Specialite" table="specialite">
+    <entity name="toubeelib\praticien\domain\Specialite" table="specialite" repository-class="toubeelib\praticien\infra\repository\SpecialiteRepository">
 
         <id name="id" type="integer" column="id">
             <generator strategy="NONE"/>

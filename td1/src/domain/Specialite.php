@@ -1,6 +1,8 @@
 <?php
 namespace toubeelib\praticien\domain;
 use toubeelib\praticien\domain\MotifVisite;
+use Doctrine\ORM\Mapping as ORM;
+use toubeelib\praticien\infra\repository\SpecialiteRepository;
 
 class Specialite {
 

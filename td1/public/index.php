@@ -281,3 +281,25 @@ if (count($praticiensOphtaParis) === 0) {
         echo "- " . $p->getNom() . " " . $p->getPrenom() . "<br>";
     }
 }
+
+//---------------------------------------------------Exercice 3------------------------------------------------------------------
+
+echo "<br><b> Exercice 3 </b><br> ";
+
+//---------------------------------------------------question 1----------------------------------------------------------------
+echo "<br> 1) <br>";
+
+$repoSpecialiteEx3 = $entityManager->getRepository(Specialite::class);
+
+// appel de la méthode DQL du repository spécialisé
+$specialitesMotCle = $repoSpecialiteEx3->findByMotCle("enfant");
+
+echo "<b>Spécialités contenant 'enfant' :</b><br>";
+
+if (count($specialitesMotCle) === 0) {
+    echo "Aucune spécialité trouvée<br>";
+} else {
+    foreach ($specialitesMotCle as $s) {
+        echo "- " . $s->getLibelle() . "<br>";
+    }
+}
