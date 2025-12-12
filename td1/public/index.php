@@ -303,3 +303,40 @@ if (count($specialitesMotCle) === 0) {
         echo "- " . $s->getLibelle() . "<br>";
     }
 }
+
+//---------------------------------------------------question 2----------------------------------------------------------------
+echo "<br> 2) <br>";
+
+$repoPraticien = $entityManager->getRepository(Praticien::class);
+
+$praticiensOphta = $repoPraticien->findBySpecialiteLibelle("ophtalmologie");
+
+echo "<b>Praticiens en ophtalmologie :</b><br>";
+
+if (count($praticiensOphta) === 0) {
+    echo "Aucun praticien trouvé<br>";
+} else {
+    foreach ($praticiensOphta as $p) {
+        echo "- " . $p->getNom() . " " . $p->getPrenom() . "<br>";
+    }
+}
+
+//---------------------------------------------------question 3----------------------------------------------------------------
+echo "<br> 3) <br>";
+
+$repoPraticien = $entityManager->getRepository(Praticien::class);
+
+$praticiens = $repoPraticien->findBySpecialiteAndMoyenPaiement(
+    "ophtalmologie",
+    "Carte bancaire"
+);
+
+echo "<b>Praticiens en ophtalmologie acceptant la carte bancaire :</b><br>";
+
+if (count($praticiens) === 0) {
+    echo "Aucun praticien trouvé<br>";
+} else {
+    foreach ($praticiens as $p) {
+        echo "- " . $p->getNom() . " " . $p->getPrenom() . "<br>";
+    }
+}
