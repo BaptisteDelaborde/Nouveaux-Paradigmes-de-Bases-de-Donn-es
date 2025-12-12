@@ -238,17 +238,46 @@ foreach ($praticiensAssocies as $p) {
 
 //---------------------------------------------------question 4----------------------------------------------------------------
 echo " <br> 4) <br>";
+
 $expr = Criteria::expr();
 
 $criteria = Criteria::create()
     ->where(
-        $expr->contains("description", "santé")
+        $expr->contains("nom", "Santé")
     )
-    ->orderBy(["libelle" => "ASC"]); 
+    ->orderBy(["nom" => "ASC"]);
 
-$typeGroupements = $repoTypeGroupement->matching($criteria);
+$structuresSante = $repoStructure->matching($criteria);
 
-echo "<b>Types de groupements contenant 'santé' :</b><br>";
-foreach ($typeGroupements as $tg) {
-    echo "- " . $tg->getLibelle() . " : " . $tg->getDescription() . "<br>";
+echo "<b>Structures contenant 'Santé' :</b><br>";
+
+foreach ($structuresSante as $structure) {
+    echo "- " . $structure->getNom() . "<br>";
+}
+
+//---------------------------------------------------question 5----------------------------------------------------------------
+echo " <br> 5) <br>";
+
+$specialiteOphta = $repoSpecialite->findOneBy([
+    "libelle" => "ophtalmologie"
+]);
+
+if (!$specialiteOphta) {
+    echo "Spécialité ophtalmologie introuvable";
+    return;
+}
+
+$praticiensOphtaParis = $repoPraticien->findBy([
+    "specialite_id" => $specialiteOphta->getId(),
+    "ville" => "Paris"
+]);
+
+echo "<b>Praticiens en ophtalmologie à Paris :</b><br>";
+
+if (count($praticiensOphtaParis) === 0) {
+    echo "Aucun praticien trouvé<br>";
+} else {
+    foreach ($praticiensOphtaParis as $p) {
+        echo "- " . $p->getNom() . " " . $p->getPrenom() . "<br>";
+    }
 }
